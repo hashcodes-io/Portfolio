@@ -11,7 +11,7 @@
 
 ---
 
-## TLDR (For HR & non-technical readers)
+## TL;DR (For HR & non-technical readers)
 - **What is it about?** It is about *event linking* — linking textual event mentions to the correct Wikipedia page, specifically focusing on the *hard* cases sub-events, events described in subsection-only, repeating or ambiguous event titles.
 - **Why it matters?** Improves reader context and downstream NLP tasks (search, summarization, QA) by accurately grounding events to canonical pages.
 - **Takeaway:** The work extends an existing SOTA LLM-Based (Evelink) model with richer candidate representations and engineering to scale precomputation; it yields consistent retrieval/recall gains and demonstrates full-stack ML engineering from data prep to evaluation. 

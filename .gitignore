@@ -1,0 +1,23 @@
+# Ignore all files and folders that begin with a dot (hidden files)
+.*
+
+# BUT keep some repo-essential items (un-ignore)
+!.gitignore
+!.gitattributes
+!.github/
+!.git/
+
+# Optional: keep an example env around for contributors
+!.env.example
+
+# Common hidden files/dev folders you probably still want ignored
+# (these are covered by ".*" above but listed for clarity)
+.DS_Store
+.env
+.venv/
+.vscode/
+.idea/
+.pyenv/
+__pycache__/
+.pytest_cache/
+coverage/

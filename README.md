@@ -13,9 +13,9 @@
 ## 📌 TL;DR (for recruiters / HR)
 - **Role:** Cloud & Data Engineer (ETL, data pipelines, infra-as-code, observability, containerization)
 - **Highlights in this repo:**
-- `thesis/` — Master's thesis (PDF + reproducible experiments)
+- `Evelink-H/` — Master's thesis (PDF + reproducible experiments)
 - `docker-demo/` — small self-built Docker Compose project (quick to run locally)
-- `projects/` — curated personal projects demonstrating cloud, data and automation skills
+- `patter-miner/` — curated personal projects demonstrating cloud, data and automation skills
 - **Quick evaluation:** open this README → go to **Quick demos** → run the Docker demo: `cd docker-demo && docker compose up --build` (takes ≈2 minutes to see something useful)
 - **Contact:** [email@example.com] · [LinkedIn profile link] · [Portfolio site link] (replace with your details)
 
