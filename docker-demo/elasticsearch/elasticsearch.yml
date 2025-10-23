@@ -1,0 +1,2 @@
+cluster.name: "kafka-pipeline"
+network.host: 0.0.0.0

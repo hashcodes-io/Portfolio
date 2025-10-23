@@ -1,0 +1,4 @@
+fastapi==0.119.1
+uvicorn==0.38.0
+kafka-python==2.2.15
+elasticsearch==9.1.1
