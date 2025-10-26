@@ -9,20 +9,26 @@ It showcases my ability to design, deploy, and manage scalable data systems in b
 
 1. **Elasticsearch + Kibana (Docker Compose)** – Containerized stack for real-time data monitoring, search, and interactive dashboards.  
 2. **Kafka + Logstash + Data Generator (Docker Compose)** – End-to-end streaming pipeline that ingests, processes, and prepares data for analytics or ML workflows.  
-3. **FastAPI + Docker + AWS Cloud** – Cloud-ready API for real-time data ingestion, integrated with S3 storage, EC2 deployment, and SageMaker ML model training.
+3. **FastAPI + Docker + Terraform + AWS Cloud** – Cloud-ready API for real-time data ingestion, integrated with S3 storage, EC2 deployment, and SageMaker ML model training.
 
 
 ---
 
 📍 **In short:**  
-> I design and deploy **cloud-native, data-driven applications** that combine **APIs, streaming systems, and machine learning**, using **AWS + Docker + FastAPI**.
+> I design and deploy cloud-native, data-driven applications that combine APIs, streaming systems, and machine learning, using AWS + Terraform + Docker + FastAPI.
 
 ---
 
 ## 🧭 Architecture Overview
 
 ```bash
-[ FastAPI Service (EC2) ]
+[ Terraform ]
+│
+▼
+[ AWS Infrastructure (EC2, S3, IAM, CloudWatch) ]
+│
+▼
+[ FastAPI Service (Docker on EC2) ]
 │
 ▼
 [ Kafka Topic ]
@@ -34,6 +40,7 @@ It showcases my ability to design, deploy, and manage scalable data systems in b
 [ Elasticsearch / Kibana (AWS OpenSearch) ]
 │
 └──► [ S3 Data Backup + SageMaker ML Training ]
+
 ```
 
 
@@ -111,7 +118,22 @@ curl -X POST http://localhost:8000/events \
 ---
 
 ## ☁️ AWS Deployment Workflow
-### 1️⃣ EC2 Deployment
+### 1️⃣ Terraform Infrastructure Setup
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+
+Provisions:
+- EC2 instance with required security groups and IAM roles
+- S3 bucket for data lake
+- IAM policies for EC2 ↔ S3 ↔ SageMaker access
+- CloudWatch metrics and logs
+
+All infrastructure details are version-controlled in the terraform/ directory.
+
+### 2️⃣ EC2 Deployment
 
 - Created and configured Ubuntu EC2 instance
 - Installed Docker, Docker Compose, and AWS CLI
@@ -122,7 +144,7 @@ curl -X POST http://localhost:8000/events \
     ```
 - Configured security groups for ports 8000, 9092, 9200, 5601
 
-### 2️⃣ S3 Data Lake Integration
+### 3️⃣ S3 Data Lake Integration
 
 Configured Logstash output to export Elasticsearch indices to Amazon S3
 
@@ -142,7 +164,7 @@ output {
 
 Data automatically lands in S3 for analytics or ML training
 
-### 3️⃣ SageMaker Integration
+### 4️⃣ SageMaker Integration
 
 - Imported S3 dataset into SageMaker notebook instance
 - Trained regression/classification model on user behavior data
