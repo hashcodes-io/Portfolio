@@ -47,6 +47,12 @@ docker-demo/
 │ └── kibana.yml
 ├── data-generator/
 │ └── producer.py
+│ └── requirements.txt
+│ └── Dockerfile
+├── fastapi-app/
+│ └── main.py
+│ └── requirements.txt
+│ └── Dockerfile
 └── README.md
 ```
 
@@ -81,33 +87,11 @@ This will spin up:
 docker exec -it kafka kafka-topics --create --topic raw-data --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
 ```
 
-### 3️⃣ Run the Data Generator
-
-```bash
-cd data-generator
-python producer.py
-```
-
-This script sends JSON events like:
-
-```bash
-{
-  "user_id": 4821,
-  "event_type": "purchase",
-  "amount": 73.29,
-  "timestamp": "2025-10-23T14:05:10"
-}
-```
-
-### 3️⃣ Run the Data Generator
-
-to the Kafka topic raw-data every second.
-
 ### 3️⃣ View Data in Kibana
 
 - Open http://localhost:5601 
 - Navigate to Stack Management → Index Patterns
-- Create a new pattern:
+- Create a new pattern
 - kafka-data-*
 
 Explore your live data in Discover or create visualizations.
