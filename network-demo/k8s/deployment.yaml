@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipnet-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ipnet-demo
+  template:
+    metadata:
+      labels:
+        app: ipnet-demo
+    spec:
+      containers:
+      - name: app
+        image: ghcr.io/<your-username>/nvidia-ip-networking-demo:latest
+        ports:
+        - containerPort: 8000
+        readinessProbe:
+          httpGet:
+            path: /allocations
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10

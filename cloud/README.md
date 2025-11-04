@@ -43,7 +43,6 @@ It showcases my ability to design, deploy, and manage scalable data systems in b
 
 ```
 
-
 ---
 
 ## ☁️ Cloud Experience: AWS Integration
